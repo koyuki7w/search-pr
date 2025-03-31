@@ -1,5 +1,7 @@
 # search-pr
 
+[![Test](https://github.com/koyuki7w/search-pr/actions/workflows/test.yml/badge.svg)](https://github.com/koyuki7w/search-pr/actions/workflows/test.yml)
+
 ## Description
 
 Search for open pull requests that modify lines containing a specific string.
