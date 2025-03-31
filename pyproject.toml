@@ -1,6 +1,6 @@
 [project]
 name = "search-pr"
-version = "1.0.0"
+version = "1.0.1"
 description = "Search for open pull requests that modify lines containing a specific string."
 authors = [
     {name = "Yuki Kobayashi",email = "drsuaimqjgar@gmail.com"}
@@ -12,6 +12,9 @@ dependencies = [
     "requests (>=2.32.3,<3.0.0)",
     "click (>=8.1.8,<9.0.0)"
 ]
+
+[project.urls]
+source = "https://github.com/koyuki7w/search-pr"
 
 [tool.poetry]
 
