@@ -1,0 +1,43 @@
+---
+name: Publish
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  publish-testpypi:
+    runs-on: ubuntu-latest
+    environment:
+      name: publish
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: build
+        run: |
+          pip install poetry
+          poetry build
+      - name: publish to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+  publish-pypi:
+    runs-on: ubuntu-latest
+    environment:
+      name: publish
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: build
+        run: |
+          pip install poetry
+          poetry build
+      - name: publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
