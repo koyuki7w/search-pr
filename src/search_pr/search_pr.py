@@ -92,7 +92,7 @@ class GithubHandler:
         while url:
             response = get_request(url)
             yield (PullRequest(pr_dict) for pr_dict in json.loads(response.text))
-            url = self._get_next_page_url(response.headers["Link"])
+            url = self._get_next_page_url(response.headers["Link"]) if "Link" in response.headers else None
 
     def _iterate_pr(self, url: str) -> Iterator[PullRequest]:
         for prs in self._iterate_pr_page(url):
