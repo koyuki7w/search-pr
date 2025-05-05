@@ -1,6 +1,6 @@
 [project]
 name = "search-pr"
-version = "1.0.1"
+version = "1.0.2"
 description = "Search for open pull requests that modify lines containing a specific string."
 authors = [
     {name = "Yuki Kobayashi",email = "drsuaimqjgar@gmail.com"}

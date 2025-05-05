@@ -220,7 +220,7 @@ def test_main_2(mocker: MockerFixture, capsys: CaptureFixture[str]) -> None:
         mapping = {
             "https://api.github.com/repos/testOwner/testRepo/pulls"
             "?sort=updated&direction=desc&per_page=100&page=1": mock_http_response(
-                {"Link": '<tests://NextLink>; rel="next", <tests://LastLink>; rel="last", '},
+                {},
                 json.dumps(
                     [
                         {
@@ -235,13 +235,6 @@ def test_main_2(mocker: MockerFixture, capsys: CaptureFixture[str]) -> None:
                             "updated_at": "1989-07-13T02:36:43Z",
                             "state": "open",
                         },
-                    ],
-                ),
-            ),
-            "tests://NextLink": mock_http_response(
-                {"Link": '<tests://PrevLink>; rel="prev", <tests://FirstLink>; rel="first", '},
-                json.dumps(
-                    [
                         {
                             "url": "test://path/to/pr/3",
                             "diff_url": "test://path/to/diff/3",
